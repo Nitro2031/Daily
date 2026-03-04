@@ -1,9 +1,9 @@
 name: architecture
 description: |
- Daily（ツリー形式チェックリストアプリ）のアーキテクチャ設計ガイド。
- ブラウザのみで動作する Vue 3 + Vuetify 3 + JavaScript（CDN）構成を前提とし、
-.vue ファイルを loadVueComponent.js で動的ロードする方式に対応する。
- データ構造、永続化、アプリ全体の構造、コンポーネント構成を設計・変更する際に参照される。
+  Daily（ツリー形式チェックリストアプリ）のアーキテクチャ設計ガイド。
+  ブラウザのみで動作する Vue 3 + Vuetify 3 + JavaScript（CDN）構成を前提とし、
+  .vue ファイルを loadVueComponent.js で動的ロードする方式に対応する。
+  データ構造、永続化、アプリ全体の構造、コンポーネント構成を設計・変更する際に参照される。
 
 # Architecture Skill
 

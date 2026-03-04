@@ -1,14 +1,12 @@
----
 name: ui-design
 description: |
   Vuetify3 を用いた UI 実装ガイド。
-  Treeview、操作性、アクセシビリティ、UI コンポーネント作成時に参照される。
----
+  TreeView、操作性、アクセシビリティ、UI コンポーネント作成時に参照される。
 
 # UI Design Skill
 
-## Treeview
-- Vuetify の v-treeview を使用する。
+## TreeView
+- Vuetify の v-treeView を使用する。
 - チェックボックス、折りたたみ、ドラッグ&ドロップをサポートする。
 - ノードは ChecklistItem 型に準拠する。
 

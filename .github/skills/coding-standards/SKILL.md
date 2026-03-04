@@ -1,9 +1,7 @@
----
 name: coding-standards
 description: |
   コーディング規約、命名規則、コンポーネント構造に関するガイド。
   コードを書く際に参照される。
----
 
 # Coding Standards Skill
 

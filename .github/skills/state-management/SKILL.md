@@ -1,9 +1,7 @@
----
 name: state-management
 description: |
   チェックリストの状態管理、繰り返しロジック、チェック状態の更新に関するガイド。
   状態管理ロジックを実装・変更する際に参照される。
----
 
 # State Management Skill
 

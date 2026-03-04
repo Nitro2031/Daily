@@ -1,9 +1,7 @@
----
 name: testing
 description: |
   単体テスト・UI テスト・永続化テストのガイド。
   テストコードを書く際に参照される。
----
 
 # Testing Skill
 
