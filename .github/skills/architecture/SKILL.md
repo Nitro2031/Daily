@@ -23,6 +23,7 @@ interface ChecklistItem {
   children: ChecklistItem[];
   order: number;
 }
+```
 
 ## モデル設計の基準
 - `id` は UUID を使用する。
