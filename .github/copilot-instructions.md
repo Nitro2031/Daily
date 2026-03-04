@@ -2,6 +2,9 @@
 
 このプロジェクトは「ツリー形式チェックリスト（Daily/Weekly タスク管理）」を実装する Web アプリです。GitHub Copilot は以下の方針に従ってコード提案を行ってください。
 
+Copilot は .github/skills 以下の SKILL.md を必要に応じて参照し、
+architecture を中心仕様として扱うこと。
+
 ## 1. 技術スタックの前提
 - Vue 3（Composition API）
 - Vuetify 3
