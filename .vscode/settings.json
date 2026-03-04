@@ -2,8 +2,10 @@
     "cSpell.words": [
         "onupgradeneeded",
         "OPFS",
+        "Pinia",
         "treeview",
         "Vite",
-        "Vuetify"
+        "Vuetify",
+        "Vuex"
     ]
 }
