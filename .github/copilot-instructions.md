@@ -5,7 +5,7 @@
 ## 1. 技術スタックの前提
 - Vue 3（Composition API）
 - Vuetify 3
-- TypeScript
+- JavaScript CDN
 - Vite
 - IndexedDB または SQLite(WASM) + OPFS（ローカル永続化）
 - JSON/CSV バックアップ
@@ -13,7 +13,7 @@
 ## 2. UI 実装方針（Vuetify3）
 - v-treeview を使用して階層構造を表示する。
 - ノードは以下のプロパティを持つ：
-
+```js
 interface ChecklistItem {
   id: string;
   title: string;
@@ -22,7 +22,7 @@ interface ChecklistItem {
   children: ChecklistItem[];
   order: number;
 }
-
+```
 - チェックボックス、折りたたみ、ドラッグ&ドロップ編集をサポートする。
 - モバイル操作を前提に、タップ領域を広めにする。
 - UI コンポーネントは BaseXxx.vue（汎用）と FeatureXxx.vue（機能別）に分ける。
@@ -45,7 +45,7 @@ interface ChecklistItem {
 - 全タスクを手動でリセットする機能も提供する。
 
 ## 5. ディレクトリ構成（推奨）
-
+```
 src/
   components/
     Base/
@@ -59,7 +59,7 @@ src/
     migration.ts
   pages/
   styles/
-
+```
 ## 6. コーディング規約
 - Composition API を使用する。
 - ロジックは composable（useXxx()）に分離する。
