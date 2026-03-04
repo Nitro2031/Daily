@@ -52,7 +52,7 @@ description: |
 
 ## 4. データモデル
 
-```ts
+```js
 interface ChecklistItem {
   id: string;
   title: string;
@@ -61,3 +61,57 @@ interface ChecklistItem {
   children: ChecklistItem[];
   order: number;
 }
+
+## 5. 永続化
+
+- IndexedDB または SQLite(WASM) + OPFS を使用する。
+- データは JSON として保存する。
+- スキーマ変更時はバージョン番号を持ち、マイグレーション処理を行う。
+
+## 6. バックアップ
+
+- JSON または CSV 形式でエクスポート・インポートを提供する。
+- バックアップデータにはバージョン番号を含める。
+
+## 7. 繰り返しロジック
+
+### 7.1 Daily
+- 毎日 00:00 に checked = false にリセットする。
+- 最終リセット日時を保存し、アプリ起動時に判定する。
+
+### 7.2 Weekly
+- 毎週指定曜日にリセットする。
+- 週の開始曜日は設定で変更可能。
+
+### 7.3 手動リセット
+- 全タスクを手動でリセットする機能も提供する。
+
+## 8. コーディング規約
+
+- Vue 3 Composition API を使用する。
+- useXxx() の形で composable を作成し、ロジックを分離する。
+- すべてのデータ構造に TypeScript 型を定義する。
+- UI コンポーネントは BaseXxx.vue（汎用）と FeatureXxx.vue（機能別）に分ける。
+
+## 9. ディレクトリ構成（推奨）
+
+src/
+  components/
+    Base/
+    Checklist/
+  composables/
+    useChecklist.ts
+    useRepeat.ts
+    useStorage.ts
+  db/
+    schema.ts
+    migration.ts
+  pages/
+  styles/
+
+## 10. テスト方針
+
+- 単体テスト：チェックロジック、繰り返しロジック、データ変換。
+- UIテスト：Treeview の操作、ドラッグ&ドロップ。
+- 永続化テスト：保存・読み込み・マイグレーション。
+
