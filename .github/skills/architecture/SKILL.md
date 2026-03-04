@@ -69,6 +69,32 @@ Daily/
 
 ---
 
+## Options API を採用する理由
+
+Daily アプリは「ブラウザのみで動作する Vue 3 + Vuetify 3 + JavaScript（CDN）構成」を採用しており、.vue ファイルは loadVueComponent.js によって動的にロードされる。この構成では、Composition API よりも Options API の方が以下の理由で適している。
+
+- **script setup が使用できないため Composition API の利点が活かせない**  
+  Composition API は本来 `<script setup>` を前提として設計されているが、ブラウザ実行環境では使用できない。結果として、Composition API を使うと Vue.ref / Vue.computed などの記述が冗長になり、可読性が低下する。
+
+- **loadVueComponent.js と Options API の相性が良い**  
+  ローダーは `<script>` を `new Function` で実行し、`export default { ... }` を取り込む仕組みである。Options API はこの構造と自然に一致し、安定して動作する。
+
+- **CDN 方式では Options API の方が記述量が少なく読みやすい**  
+  Composition API を CDN で使う場合、Vue のグローバル API（Vue.ref など）を多用する必要があり、コードが煩雑になる。Options API は data / methods / computed が明確に分離され、構造が読みやすい。
+
+- **Vuetify 3 の CDN 方式と相性が良い**  
+  Vuetify の CDN 例は Options API を前提としており、UI ロジックが自然に記述できる。
+
+- **小〜中規模アプリでは Options API の方が保守性が高い**  
+  Daily のようなツリー構造アプリでは、状態（data）、操作（methods）、派生値（computed）が明確に分かれている方が理解しやすく、コンポーネント間の責務も整理しやすい。
+
+- **Copilot が安定してコードを生成できる**  
+  Composition API はロジックが setup 内に混在しやすく、CDN + JS 環境では Copilot が誤提案しやすい。Options API の方が構造が明確で、SKILL セットとの整合性も高い。
+
+以上の理由から、Daily アプリでは Composition API ではなく Options API を標準として採用する。
+
+---
+
 ## loadVueComponent.js の役割
 - `.vue` ファイルを fetch で取得する。
 - DOMParser で `<template>` を抽出し、Vue コンポーネントの template として設定する。
